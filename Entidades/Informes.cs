@@ -34,7 +34,7 @@ namespace Entidades
         {
             extension = 0;
             cantidad = 0;
-            resumen = $"No hay elementos en estado {estado}";
+            resumen = "";
 
             if (e.Tipo == Escaner.TipoDoc.libro)
             {
@@ -44,11 +44,9 @@ namespace Entidades
                     {
                         extension += doc.NumPaginas;
                         cantidad++;
-                        Console.WriteLine(doc.ToString());
+                        resumen+=($"{doc.ToString()}");
                     }
                 }
-
-                resumen = $"Hay {cantidad} elementos en estado {estado}. Se analizó un total de {extension} páginas";
                 Console.WriteLine(resumen);
             }
 
@@ -60,10 +58,10 @@ namespace Entidades
                     {
                         extension += doc.Superficie;
                         cantidad++;
-                        doc.ToString();
+                        //Console.WriteLine(doc.ToString());
+                        resumen += ($"{doc.ToString()}");
                     }
                 }
-                resumen = $"Hay {cantidad} elementos en estado {estado}. Hay una superficie total de {extension}cm²";
                 Console.WriteLine(resumen);
             }
         }
